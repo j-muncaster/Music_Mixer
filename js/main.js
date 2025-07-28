@@ -48,19 +48,7 @@ function drop(event) {
 
         currentDraggedElement.audio = audio;
         activeAudios.push(audio);
-    } 
-
-    const track = currentDraggedElement.querySelector('img').dataset.trackref;
-
-    if (track) {
-        const audio = new Audio(`audio/${track}.mp3`);
-        audio.loop = true;
-        audio.play();
-
-        currentDraggedElement.audio = audio;
-        activeAudios.push(audio);
-    } 
-
+    }
 
     currentDraggedElement = null;
 }
