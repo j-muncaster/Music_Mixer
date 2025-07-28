@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="crickets" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 112.64 112.64">
+  <circle cx="56.32" cy="56.32" r="51.83" style="fill: none; stroke: #467e59; stroke-miterlimit: 10; stroke-width: 8.98px;"/>
+  <path d="M23.39,35.03l78,35.56c8.9,2.18-45.09,27.52-66.51-11.16,1.01,16.76-29.12,10.93-11.49-24.41Z" style="fill: none; stroke: #467e59; stroke-miterlimit: 10; stroke-width: 3px;"/>
+  <polyline points="71.42 66.88 90.73 41.3 79.77 97.42 81.73 98.85" style="fill: none; stroke: #467e59; stroke-miterlimit: 10; stroke-width: 2px;"/>
+  <path d="M54.66,77.45s-2.56,12.66-5.04,13.31,2.22-3.13,11.75,0" style="fill: none; stroke: #467e59; stroke-miterlimit: 10; stroke-width: 2px;"/>
+  <path d="M40.74,67.69s-7.82,23.09-5.08,23.14-10.31-2.56-10.18.97" style="fill: none; stroke: #467e59; stroke-miterlimit: 10; stroke-width: 2px;"/>
+  <path d="M15.43,29.68s6.13.13,7.96,5.35c0,0-2.22-12.66,1.17-14.62" style="fill: none; stroke: #467e59; stroke-miterlimit: 10; stroke-width: 2px;"/>
+</svg>
