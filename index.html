@@ -3,10 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Jo & Amy's Music Mixer Project</title>
 </head>
+
 <body>
-    
+    <main class="container">
+        <h2 class="hidden">Zen Garden Music Mixer</h2>
+
+        <!-- Main Hero Image -->
+        <section class="">
+            <h3 class="hidden">Target Zones</h3>
+            <img src="images/Zen Garden Background.svg" alt="Zen Garden Background" class="">
+
+            <!-- Target/Drop Zones -->
+             <div class="target-zone" id="zone-1"></div>
+             <div class="target-zone" id="zone-2"></div>
+             <div class="target-zone" id="zone-3"></div>
+             <div class="target-zone" id="zone-4"></div>
+             <div class="target-zone" id="zone-5"></div>
+        </section>
+
+        <!-- Movable Icons -->
+        <section class="labels-container">
+            <h2 class="hidden">Dragable Icons</h2>
+            <div id="icon-box">
+                <div class="icon" draggable="true"></div>
+                <div class="icon" draggable="true"></div>
+                <div class="icon" draggable="true"></div>
+                <div class="icon" draggable="true"></div>
+                <div class="icon" draggable="true"></div>
+                <div class="icon" draggable="true"></div>
+                <div class="icon" draggable="true"></div>
+                <div class="icon" draggable="true"></div>
+                <div class="icon" draggable="true"></div>
+                <div class="icon" draggable="true"></div>
+                <div class="icon" draggable="true"></div>
+                <div class="icon" draggable="true"></div>
+            </div>
+
+            <button class="reset-btn" id="reset-btn">Reset Game</button>
+        </section>
+
+        <!-- Audio Controls -->
+        <section class="audio-controls">
+            <button id="playButton">PLAY</button>
+            <button id="pauseButton">PAUSE</button>
+            <button id="rewindButton">REWIND</button>
+
+            <input id="volumeControl" type="range" min="0" max="100" step="1">
+        </section>
+
+        <!-- Instructions -->
+        <section>
+            <h3>Zen Garden Mixer Guide</h3>
+                <p>
+                - Drag a sound icon into a drop zone to load the track.
+                - Press ▶️ to play, ⏸️ to pause.
+                - Use the volume slider to adjust sound.
+                - Mix multiple sounds by using different zones to create a zen garden soundscape.
+                </p>
+        </section>
+    </main>
     <script src="js/main.js"></script>
 </body>
 </html>
