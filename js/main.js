@@ -41,7 +41,6 @@ function drop(event) {
 
     loadAudio.call(currentDraggedElement.querySelector('img'));
 
-<<<<<<< Updated upstream
     const track = currentDraggedElement.querySelector('img').dataset.trackref;
 
     if (track) {
@@ -53,8 +52,6 @@ function drop(event) {
         activeAudios.push(audio);
     } 
 
-=======
->>>>>>> Stashed changes
     currentDraggedElement = null;
 }
 
