@@ -6,12 +6,13 @@ const icons = document.querySelectorAll(".icon");
 const targetZones = document.querySelectorAll(".target-zone");
 
 const   iconImage = document.querySelectorAll(".icon img"),
-        audioel = document.querySelector('#audio-player'),
+        audioel = document.querySelector('audio'),
         playbtn = document.querySelector('#playButton'),
         pausebtn = document.querySelector('#pauseButton'),
         vol = document.querySelector('#volumeControl');
 
 let currentDraggedElement = null;
+let activeAudios = [];
 
 
 // Functions
@@ -38,16 +39,27 @@ function drop(event) {
 
     this.appendChild(currentDraggedElement);
 
+    const track = currentDraggedElement.querySelector('img').dataset.trackref;
 
-    // Load and play audio based on the dropped icon's data-trackref
-    const trackRef = currentDraggedElement.dataset.trackref;
-    if (trackRef) {
-        audioel.src = `audio/${trackRef}.mp3`;
-        audioel.load();
-        audioel.play();
-    }
+    if (track) {
+        const audio = new Audio(`audio/${track}.mp3`);
+        audio.loop = true;
+        audio.play();
 
-    loadAudio.call(currentDraggedElement.querySelector('img'));
+        currentDraggedElement.audio = audio;
+        activeAudios.push(audio);
+    } 
+
+    const track = currentDraggedElement.querySelector('img').dataset.trackref;
+
+    if (track) {
+        const audio = new Audio(`audio/${track}.mp3`);
+        audio.loop = true;
+        audio.play();
+
+        currentDraggedElement.audio = audio;
+        activeAudios.push(audio);
+    } 
 
 
     currentDraggedElement = null;
@@ -56,41 +68,52 @@ function drop(event) {
 function resetGame() {
     const iconBox = document.querySelector("#icon-box");
     const allIcons = document.querySelectorAll(".icon");
+
     allIcons.forEach(icon => {
         iconBox.appendChild(icon);
+
+        if (icon.audio) {
+            icon.audio.pause();
+            icon.audio.currentTime = 0;
+            icon.audio = null;
+        }
     });
+
     console.log("Music Mixer has been reset.");
 }
 
 // Load the New Audio Source
 
 function loadAudio() {
-    const trackRef = this.dataset.trackref;
-    if (trackRef) {
-        audioel.src = `audio/${trackRef}.mp3`;
-        audioel.load();
-        playAudio();
+    const track = this.dataset.trackref;
+    if (!track) {
+        console.warn("Missing data-trackref on", this);
+        return;
     }
+
+    let currentSrc = `audio/${track}.mp3`;
+    audioel.src = currentSrc;
+    audioel.load();
+    playAudio();
 }
 
 // Tell the Audio Element to Play
 
-function playAudio() { 
-    audioel.play(); 
+function playAudio() {
+    activeAudios.forEach(audio => {
+        audio.play();
+    });
 }
 
-function restartAudio() { 
-    audioel.currentTime = 0; 
-    playAudio(); 
-}
-
-function pauseAudio() { 
-    audioel.pause(); 
+function pauseAudio() {
+    activeAudios.forEach(audio => audio.pause());
 }
 
 function setVolume() {
-    console.log(this.value);
-    audioel.volume = (this.value/100); 
+    const volume = this.value / 100;
+    activeAudios.forEach(audio => {
+        audio.volume = volume;
+    });
 }
 
 //Event Listeners
@@ -113,5 +136,4 @@ icons.forEach(icon => icon.addEventListener('click', loadAudio));
 
 playbtn.addEventListener('click', playAudio);
 pausebtn.addEventListener('click', pauseAudio);
-
-vol.addEventListener('input', setVolume);
+vol.addEventListener('change', setVolume);
