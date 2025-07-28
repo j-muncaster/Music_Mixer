@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/grid.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap" rel="stylesheet">
+  
     <title>Jo & Amy's Music Mixer Project</title>
 </head>
 
@@ -12,18 +20,18 @@
         <h2 class="hidden">Zen Garden Music Mixer</h2>
 
         <!-- Main Hero Image -->
-<<<<<<< Updated upstream
-        <section class="">
-=======
         <section class="background image">
            <div id="zen-background">
             <img src="images/Zen Garden Background.jpg" alt="Zen Garden Background">
         </div>
+            
+        <!-- Audio Controls -->
+        <section class="audio-controls">
+            <button id="playButton"><img src="images/play_button_icon.png" alt="play icon"></button>
+            <button id="pauseButton"><img src="images/pause_button_icon.png" alt="pause icon"></button>
 
-        <section class="background-image">
-            <div id="zen-background">
-                <img src="images/Zen Garden Background.svg" alt="Zen Garden Background">
-            </div>
+            <input id="volumeControl" type="range" min="0" max="100" step="1">
+        
         </section>
             
         <!-- Audio Controls -->
@@ -34,56 +42,46 @@
             <input id="volumeControl" type="range" min="0" max="100" step="1">
         
         </section>
->>>>>>> Stashed changes
             <h3 class="hidden">Target Zones</h3>
-            <img src="images/Zen Garden Background.svg" alt="Zen Garden Background" class="">
-
             <!-- Target/Drop Zones -->
-             <div class="target-zone" id="zone-1"></div>
-             <div class="target-zone" id="zone-2"></div>
-             <div class="target-zone" id="zone-3"></div>
-             <div class="target-zone" id="zone-4"></div>
-             <div class="target-zone" id="zone-5"></div>
+                <div class="target-zone" id="zone-1"></div>
+                <div class="target-zone" id="zone-2"></div>
+                <div class="target-zone" id="zone-3"></div>
+                <div class="target-zone" id="zone-4"></div>
+                <div class="target-zone" id="zone-5"></div>
         </section>
 
         <!-- Movable Icons -->
-        <section class="labels-container">
+        <section class="icon-container">
             <h2 class="hidden">Dragable Icons</h2>
             <div id="icon-box">
-                <div class="icon" draggable="true"></div>
-                <div class="icon" draggable="true"></div>
-                <div class="icon" draggable="true"></div>
-                <div class="icon" draggable="true"></div>
-                <div class="icon" draggable="true"></div>
-                <div class="icon" draggable="true"></div>
-                <div class="icon" draggable="true"></div>
-                <div class="icon" draggable="true"></div>
-                <div class="icon" draggable="true"></div>
-                <div class="icon" draggable="true"></div>
-                <div class="icon" draggable="true"></div>
-                <div class="icon" draggable="true"></div>
+                <div class="icon" draggable="true"><img src="images/water-1.svg" alt="water 1 icon"></div>
+                <div class="icon" draggable="true"><img src="images/water-2.svg" alt="water 2 icon"></div>
+                <div class="icon" draggable="true"><img src="images/wind.svg" alt="wind icon"></div>
+                <div class="icon" draggable="true"><img src="images/aura.svg" alt="aura icon"></div>
+                <div class="icon" draggable="true"><img src="images/birds.svg" alt="birds icon"></div>
+                <div class="icon" draggable="true"><img src="images/crickets.svg" alt="crickets icon"></div>
+                <div class="icon" draggable="true"><img src="images/feet.svg" alt="footsteps icon"></div>
+                <div class="icon" draggable="true"><img src="images/flute.svg" alt="flute icon"></div>
+                <div class="icon" draggable="true"><img src="images/gong.svg" alt="gong icon"></div>
+                <div class="icon" draggable="true"><img src="images/insects.svg" alt="insects icon"></div>
+                <div class="icon" draggable="true"><img src="images/leaves.svg" alt="leaves icon"></div>
+                <div class="icon" draggable="true"><img src="images/rake.svg" alt="rake icon"></div>
             </div>
 
-            <button class="reset-btn" id="reset-btn">Reset Game</button>
-        </section>
-
-        <!-- Audio Controls -->
-        <section class="audio-controls">
-            <button id="playButton">PLAY</button>
-            <button id="pauseButton">PAUSE</button>
-            <button id="rewindButton">REWIND</button>
-
-            <input id="volumeControl" type="range" min="0" max="100" step="1">
+            <button class="reset-btn" id="reset-btn">Reset Music</button>
         </section>
 
         <!-- Instructions -->
-        <section>
-            <h3>Zen Garden Mixer Guide</h3>
+
+        <section class="guide-box">
+            <h2>Zen Garden</h2>
+                <h3>Music Mixer Guide</h3>
                 <p>
-                - Drag a sound icon into a drop zone to load the track.
-                - Press ▶️ to play, ⏸️ to pause.
-                - Use the volume slider to adjust sound.
-                - Mix multiple sounds by using different zones to create a zen garden soundscape.
+                🪷 Drag a sound icon into a drop zone to load the track.<br>
+                🪷 Press ▶️ to play, ⏸️ to pause.<br>
+                🪷 Use the volume slider to adjust sound.<br>
+                🪷 Mix multiple sounds by using different zones to create a zen garden soundscape.
                 </p>
         </section>
     </main>
