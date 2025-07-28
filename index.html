@@ -25,14 +25,6 @@
             <img src="images/Zen Garden Background.jpg" alt="Zen Garden Background">
         </div>
             
-        <!-- Audio Controls -->
-        <section class="audio-controls">
-            <button id="playButton"><img src="images/play_button_icon.png" alt="play icon"></button>
-            <button id="pauseButton"><img src="images/pause_button_icon.png" alt="pause icon"></button>
-
-            <input id="volumeControl" type="range" min="0" max="100" step="1">
-        
-        </section>
             
         <!-- Audio Controls -->
         <section class="audio-controls">
@@ -52,21 +44,22 @@
         </section>
 
         <!-- Movable Icons -->
+        <audio id="audio-player"></audio>
         <section class="icon-container">
             <h2 class="hidden">Dragable Icons</h2>
             <div id="icon-box">
-                <div class="icon" draggable="true"><img src="images/water-1.svg" alt="water 1 icon"></div>
-                <div class="icon" draggable="true"><img src="images/water-2.svg" alt="water 2 icon"></div>
-                <div class="icon" draggable="true"><img src="images/wind.svg" alt="wind icon"></div>
-                <div class="icon" draggable="true"><img src="images/aura.svg" alt="aura icon"></div>
-                <div class="icon" draggable="true"><img src="images/birds.svg" alt="birds icon"></div>
-                <div class="icon" draggable="true"><img src="images/crickets.svg" alt="crickets icon"></div>
-                <div class="icon" draggable="true"><img src="images/feet.svg" alt="footsteps icon"></div>
-                <div class="icon" draggable="true"><img src="images/flute.svg" alt="flute icon"></div>
-                <div class="icon" draggable="true"><img src="images/gong.svg" alt="gong icon"></div>
-                <div class="icon" draggable="true"><img src="images/insects.svg" alt="insects icon"></div>
-                <div class="icon" draggable="true"><img src="images/leaves.svg" alt="leaves icon"></div>
-                <div class="icon" draggable="true"><img src="images/rake.svg" alt="rake icon"></div>
+                <div class="icon" draggable="true" data-trackref="water-1"><img src="images/water-1.svg" alt="water 1 icon"></div>
+                <div class="icon" draggable="true" data-trackref="water-2"><img src="images/water-2.svg" alt="water 2 icon"></div>
+                <div class="icon" draggable="true" data-trackref="wind"><img src="images/wind.svg" alt="wind icon"></div>
+                <div class="icon" draggable="true" data-trackref="aura"><img src="images/aura.svg" alt="aura icon"></div>
+                <div class="icon" draggable="true" data-trackref="birds"><img src="images/birds.svg" alt="birds icon"></div>
+                <div class="icon" draggable="true" data-trackref="crickets"><img src="images/crickets.svg" alt="crickets icon"></div>
+                <div class="icon" draggable="true" data-trackref="footsteps"><img src="images/feet.svg" alt="footsteps icon"></div>
+                <div class="icon" draggable="true" data-trackref="flute"><img src="images/flute.svg" alt="flute icon"></div>
+                <div class="icon" draggable="true" data-trackref="gong"><img src="images/gong.svg" alt="gong icon"></div>
+                <div class="icon" draggable="true" data-trackref="insects"><img src="images/insects.svg" alt="insects icon"></div>
+                <div class="icon" draggable="true" data-trackref="leaves"><img src="images/leaves.svg" alt="leaves icon"></div>
+                <div class="icon" draggable="true" data-trackref="rake"><img src="images/rake.svg" alt="rake icon"></div>
             </div>
 
             <button class="reset-btn" id="reset-btn">Reset Music</button>
