@@ -6,7 +6,7 @@ const icons = document.querySelectorAll(".icon");
 const targetZones = document.querySelectorAll(".target-zone");
 
 const   iconImage = document.querySelectorAll(".icon img"),
-        audioel = document.querySelector('audio'),
+        audioel = document.querySelector('#audio-player'),
         playbtn = document.querySelector('#playButton'),
         pausebtn = document.querySelector('#pauseButton'),
         vol = document.querySelector('#volumeControl');
@@ -29,7 +29,6 @@ function dragOver(event) {
 
 function drop(event) {
     event.preventDefault();
-
     this.classList.remove("highlight");
 
     if (this.children.length > 0) {
@@ -38,6 +37,15 @@ function drop(event) {
     }
 
     this.appendChild(currentDraggedElement);
+
+    // Load and play audio based on the dropped icon's data-trackref
+    const trackRef = currentDraggedElement.dataset.trackref;
+    if (trackRef) {
+        audioel.src = `audio/${trackRef}.mp3`;
+        audioel.load();
+        audioel.play();
+    }
+
     currentDraggedElement = null;
 }
 
@@ -53,10 +61,12 @@ function resetGame() {
 // Load the New Audio Source
 
 function loadAudio() {
-    let currentSrc = `audio/${this.dataset.trackref}.mp3`;
-    audioel.src = currentSrc;    
-    audioel.load();
-    playAudio();
+    const trackRef = this.dataset.trackref;
+    if (trackRef) {
+        audioel.src = `audio/${trackRef}.mp3`;
+        audioel.load();
+        playAudio();
+    }
 }
 
 // Tell the Audio Element to Play
@@ -100,4 +110,4 @@ icons.forEach(icon => icon.addEventListener('click', loadAudio));
 playbtn.addEventListener('click', playAudio);
 pausebtn.addEventListener('click', pauseAudio);
 
-vol.addEventListener('change', setVolume);
+vol.addEventListener('input', setVolume);
