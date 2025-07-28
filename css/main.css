@@ -169,8 +169,7 @@ h1, p {
     font-size: 16px;
 }
 
-<<<<<<< Updated upstream
-=======
+
 .audio-controls {
   display: flex;
   position: fixed;
@@ -203,24 +202,6 @@ h1, p {
   cursor: pointer;
 }
 
-
-
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 @media (min-width: 768px) {
     .container {
         flex-direction: row;
