@@ -6,7 +6,7 @@ const icons = document.querySelectorAll(".icon");
 const targetZones = document.querySelectorAll(".target-zone");
 
 const   iconImage = document.querySelectorAll(".icon img"),
-        audioel = document.querySelector('#audio-player'),
+        audioel = document.querySelector('audio'),
         playbtn = document.querySelector('#playButton'),
         pausebtn = document.querySelector('#pauseButton'),
         vol = document.querySelector('#volumeControl');
@@ -39,17 +39,16 @@ function drop(event) {
 
     this.appendChild(currentDraggedElement);
 
+    const track = currentDraggedElement.querySelector('img').dataset.trackref;
 
-    // Load and play audio based on the dropped icon's data-trackref
-    const trackRef = currentDraggedElement.dataset.trackref;
-    if (trackRef) {
-        audioel.src = `audio/${trackRef}.mp3`;
-        audioel.load();
-        audioel.play();
-    }
+    if (track) {
+        const audio = new Audio(`audio/${track}.mp3`);
+        audio.loop = true;
+        audio.play();
 
-    loadAudio.call(currentDraggedElement.querySelector('img'));
-
+        currentDraggedElement.audio = audio;
+        activeAudios.push(audio);
+    } 
 
     const track = currentDraggedElement.querySelector('img').dataset.trackref;
 
@@ -86,12 +85,16 @@ function resetGame() {
 // Load the New Audio Source
 
 function loadAudio() {
-    const trackRef = this.dataset.trackref;
-    if (trackRef) {
-        audioel.src = `audio/${trackRef}.mp3`;
-        audioel.load();
-        playAudio();
+    const track = this.dataset.trackref;
+    if (!track) {
+        console.warn("Missing data-trackref on", this);
+        return;
     }
+
+    let currentSrc = `audio/${track}.mp3`;
+    audioel.src = currentSrc;
+    audioel.load();
+    playAudio();
 }
 
 // Tell the Audio Element to Play
@@ -133,5 +136,4 @@ icons.forEach(icon => icon.addEventListener('click', loadAudio));
 
 playbtn.addEventListener('click', playAudio);
 pausebtn.addEventListener('click', pauseAudio);
-
-vol.addEventListener('input', setVolume);
+vol.addEventListener('change', setVolume);
