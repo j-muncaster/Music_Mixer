@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 .hidden {
     display: none;
 }
@@ -38,15 +36,6 @@ h1, p {
   z-index: -1;
   overflow: hidden;
 }
-<<<<<<< Updated upstream
-=======
-
-#zen-background img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; 
-}
->>>>>>> Stashed changes
 
 #zen-background img {
   width: 100%;
@@ -148,12 +137,6 @@ h1, p {
 }
 
 .reset-btn:hover {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    background-color: #c0392b;
-=======
-=======
->>>>>>> Stashed changes
     background-color: #7C898B;
 }
 
@@ -188,10 +171,6 @@ h1, p {
     color: white;
     font-size: 14px;
     text-align: left;
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 }
 
 .audio-controls {
@@ -227,17 +206,9 @@ h1, p {
   cursor: pointer;
 }
 
+
 @media (min-width: 768px) {
     .container {
         flex-direction: row;
     }
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 }
->>>>>>> Stashed changes
-=======
-}
->>>>>>> Stashed changes
-=======
-}
->>>>>>> Stashed changes
