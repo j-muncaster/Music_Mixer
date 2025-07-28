@@ -29,7 +29,6 @@ function dragOver(event) {
 
 function drop(event) {
     event.preventDefault();
-
     this.classList.remove("highlight");
 
     if (this.children.length > 0) {
@@ -38,11 +37,18 @@ function drop(event) {
     }
 
     this.appendChild(currentDraggedElement);
+
+    loadAudio.call(currentDraggedElement.querySelector('img'));
+
     currentDraggedElement = null;
 }
 
 function resetGame() {
+<<<<<<< Updated upstream
     const iconBox = document.querySelectorAll("icon-box");
+=======
+    const iconBox = document.querySelector("#icon-box");
+>>>>>>> Stashed changes
     const allIcons = document.querySelectorAll(".icon");
     allIcons.forEach (icon => {
         iconBox.appendChild(icon);
