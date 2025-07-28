@@ -39,13 +39,7 @@ function drop(event) {
 
     this.appendChild(currentDraggedElement);
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
     loadAudio.call(currentDraggedElement.querySelector('img'));
-
-=======
-    const track = currentDraggedElement.querySelector('img').dataset.trackref;
-=======
     const track = currentDraggedElement.querySelector('img').dataset.trackref;
 
     if (track) {
@@ -56,18 +50,6 @@ function drop(event) {
         currentDraggedElement.audio = audio;
         activeAudios.push(audio);
     } 
->>>>>>> Stashed changes
-
-    if (track) {
-        const audio = new Audio(`audio/${track}.mp3`);
-        audio.loop = true;
-        audio.play();
-
-        currentDraggedElement.audio = audio;
-        activeAudios.push(audio);
-    } 
-
->>>>>>> Stashed changes
     currentDraggedElement = null;
 }
 
@@ -90,22 +72,11 @@ function resetGame() {
 
 // Load the New Audio Source
 
-function loadAudio() {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    let currentSrc = `audio/${this.dataset.trackref}.mp3`;
-    audioel.src = currentSrc;    
-=======
-=======
->>>>>>> Stashed changes
+function loadAudio() {   
     const track = this.dataset.trackref;
 
     let currentSrc = `audio/${track}.mp3`;
     audioel.src = currentSrc;
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
     audioel.load();
     playAudio();
 }
