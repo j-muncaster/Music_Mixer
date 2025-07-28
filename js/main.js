@@ -38,6 +38,7 @@ function drop(event) {
 
     this.appendChild(currentDraggedElement);
 
+
     // Load and play audio based on the dropped icon's data-trackref
     const trackRef = currentDraggedElement.dataset.trackref;
     if (trackRef) {
@@ -46,11 +47,14 @@ function drop(event) {
         audioel.play();
     }
 
+    loadAudio.call(currentDraggedElement.querySelector('img'));
+
+
     currentDraggedElement = null;
 }
 
 function resetGame() {
-    const iconBox = document.querySelector(".icon-box");
+    const iconBox = document.querySelector("#icon-box");
     const allIcons = document.querySelectorAll(".icon");
     allIcons.forEach(icon => {
         iconBox.appendChild(icon);
