@@ -42,9 +42,9 @@ function drop(event) {
 }
 
 function resetGame() {
-    const iconBox = document.querySelectorAll("icon-box");
+    const iconBox = document.querySelector(".icon-box");
     const allIcons = document.querySelectorAll(".icon");
-    allIcons.forEach (icon => {
+    allIcons.forEach(icon => {
         iconBox.appendChild(icon);
     });
     console.log("Music Mixer has been reset.");
@@ -91,10 +91,10 @@ targetZones.forEach(target => {
 });
 
 
-const resetBtn = document.querySelectorAll("reset-btn");
+const resetBtn = document.querySelector(".reset-btn");
 resetBtn.addEventListener("click", resetGame);
 
-icons.forEach(icon => icon.addEventListener('mouseup', loadAudio));
+icons.forEach(icon => icon.addEventListener('click', loadAudio));
 
 
 playbtn.addEventListener('click', playAudio);
