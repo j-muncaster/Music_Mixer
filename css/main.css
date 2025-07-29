@@ -189,14 +189,12 @@ h1, p {
     text-align: left;
 }
 
-.audio-controls {
-  display: flex;
-  position: fixed;
-  align-items: center;
-  gap: 10px;
-  margin-left: 20%;
-  margin-top: 0.5%;
-  padding: 0;
+#control-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-left: -38%;
 }
 
 .audio-controls button {
