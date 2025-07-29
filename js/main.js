@@ -113,6 +113,9 @@ icons.forEach(icon => {
 targetZones.forEach(target => {
     target.addEventListener("dragover", dragOver);
     target.addEventListener("drop", drop);
+    target.addEventListener("dragleave", function () {
+        this.classList.remove("highlight");
+    });
 });
 
 
