@@ -197,6 +197,14 @@ h1, p {
     margin-left: -38%;
 }
 
+#control-panel img {
+    display: flex;
+    width: 350px;
+    height: auto;
+    margin-left: 10%;
+    margin-top: -5%;
+}
+
 .audio-controls button {
   background: none;
   border: none;
