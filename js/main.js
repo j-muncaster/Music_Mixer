@@ -12,6 +12,7 @@ const   iconImage = document.querySelectorAll(".icon img"),
         vol = document.querySelector('#volumeControl');
 
 let currentDraggedElement = null;
+let activeAudios = [];
 
 
 // Functions
@@ -29,7 +30,6 @@ function dragOver(event) {
 
 function drop(event) {
     event.preventDefault();
-
     this.classList.remove("highlight");
 
     if (this.children.length > 0) {
@@ -38,45 +38,70 @@ function drop(event) {
     }
 
     this.appendChild(currentDraggedElement);
+
+    const track = currentDraggedElement.querySelector('img').dataset.trackref;
+
+    if (track) {
+        const audio = new Audio(`audio/${track}.mp3`);
+        audio.loop = true;
+        audio.play();
+
+        currentDraggedElement.audio = audio;
+        activeAudios.push(audio);
+    }
+
     currentDraggedElement = null;
 }
 
 function resetGame() {
-    const iconBox = document.querySelectorAll("icon-box");
+    const iconBox = document.querySelector("#icon-box");
     const allIcons = document.querySelectorAll(".icon");
-    allIcons.forEach (icon => {
+
+    allIcons.forEach(icon => {
         iconBox.appendChild(icon);
+
+        if (icon.audio) {
+            icon.audio.pause();
+            icon.audio.currentTime = 0;
+            icon.audio = null;
+        }
     });
+
     console.log("Music Mixer has been reset.");
 }
 
 // Load the New Audio Source
 
 function loadAudio() {
-    let currentSrc = `audio/${this.dataset.trackref}.mp3`;
-    audioel.src = currentSrc;    
+    const track = this.dataset.trackref;
+    if (!track) {
+        console.warn("Missing data-trackref on", this);
+        return;
+    }
+
+    let currentSrc = `audio/${track}.mp3`;
+    audioel.src = currentSrc;
     audioel.load();
     playAudio();
 }
 
 // Tell the Audio Element to Play
 
-function playAudio() { 
-    audioel.play(); 
+function playAudio() {
+    activeAudios.forEach(audio => {
+        audio.play();
+    });
 }
 
-function restartAudio() { 
-    audioel.currentTime = 0; 
-    playAudio(); 
-}
-
-function pauseAudio() { 
-    audioel.pause(); 
+function pauseAudio() {
+    activeAudios.forEach(audio => audio.pause());
 }
 
 function setVolume() {
-    console.log(this.value);
-    audioel.volume = (this.value/100); 
+    const volume = this.value / 100;
+    activeAudios.forEach(audio => {
+        audio.volume = volume;
+    });
 }
 
 //Event Listeners
@@ -91,13 +116,12 @@ targetZones.forEach(target => {
 });
 
 
-const resetBtn = document.querySelectorAll("reset-btn");
+const resetBtn = document.querySelector(".reset-btn");
 resetBtn.addEventListener("click", resetGame);
 
-icons.forEach(icon => icon.addEventListener('mouseup', loadAudio));
+icons.forEach(icon => icon.addEventListener('click', loadAudio));
 
 
 playbtn.addEventListener('click', playAudio);
 pausebtn.addEventListener('click', pauseAudio);
-
 vol.addEventListener('change', setVolume);
