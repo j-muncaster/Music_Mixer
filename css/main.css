@@ -1,3 +1,5 @@
+/* Main Styles */
+
 .hidden {
     display: none;
 }
@@ -13,6 +15,8 @@ h1, p {
     margin-bottom: 20px;
     color: #333;
 }
+
+/* Background Image */
 
 .body-image {
     display: block;
@@ -35,6 +39,8 @@ h1, p {
   object-fit: cover; 
 }
 
+/* Icon Styling */
+
 .tray-wrapper {
   position: fixed;      
   top: -5%;             
@@ -51,6 +57,7 @@ h1, p {
 
 #icon-box {
   position: absolute;
+  z-index: 100;
   top: 12%;              
   left: 48%;
   transform: translateX(-50%);
@@ -60,7 +67,6 @@ h1, p {
   gap: 15px 15px;
   width: 200px;       
   pointer-events: auto;
-  z-index: 20;
 }
 
 .icon img {
@@ -71,6 +77,8 @@ h1, p {
   margin: 0 auto;
   transition: all 0.2s ease-in-out;
 }
+
+/* Target Zone Styling */
 
 .target-zone {
     position: absolute;
@@ -117,22 +125,35 @@ h1, p {
     left: 70%;
 } 
 
+/* Instructions Styling */
+
 .guide-box {
-    position: absolute;
+  position: fixed;
+  bottom: 0;
+  left: 15%;
+  width: 80%;
+  height: auto;
+  text-align: center;
+  z-index: 10;
+  margin: 0;
+  padding: 0;
+}
 
-    bottom: 10px;
-    right: 25%;
-    width: 280px;
+.guide-box img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 
-    bottom: 6px;
-    right: 22%;
-    width: 300px;
-
-    color: white;
-    padding: 12px 10px;
-    font-size: 14px;
-    line-height: 1.4;
-    z-index: 20;
+.guide-text {
+  position: absolute;
+  bottom: 10%;
+  left: 58%;
+  transform: translateX(-50%);
+  z-index: 2;
+  color: #fff;
+  font-family: "Hammersmith One", sans-serif;
+  max-width: 30%;
 }
 
 .guide-box h2 {
@@ -156,6 +177,7 @@ h1, p {
     text-align: left;
 }
 
+/* Audio Controls Styling */
 
 .audio-controls {
   position: relative;
@@ -167,7 +189,6 @@ h1, p {
   z-index: 1;
   top: 0;
   left: 50%;
-  transform: translateX(80%);
   width: 300px;
   height: auto;
 }
@@ -234,35 +255,6 @@ h1, p {
 
 .reset-btn:hover {
   background-color: #E8C0C0;
-}
-
-.guide-box {
-  position: fixed;
-  bottom: 0;
-  left: 15%;
-  width: 80%;
-  height: auto;
-  text-align: center;
-  z-index: 10;
-  margin: 0;
-  padding: 0;
-}
-
-.guide-box img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.guide-text {
-  position: absolute;
-  bottom: 10%;
-  left: 58%;
-  transform: translateX(-50%);
-  z-index: 2;
-  color: #fff;
-  font-family: "Hammersmith One", sans-serif;
-  max-width: 30%;
 }
 
 @media (min-width: 768px) {
