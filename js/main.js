@@ -70,8 +70,6 @@ function resetGame() {
     console.log("Music Mixer has been reset.");
 }
 
-// Load the New Audio Source
-
 function loadAudio() {
     const track = this.dataset.trackref;
     if (!track) {
@@ -84,8 +82,6 @@ function loadAudio() {
     audioel.load();
     playAudio();
 }
-
-// Tell the Audio Element to Play
 
 function playAudio() {
     activeAudios.forEach(audio => {
